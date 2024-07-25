@@ -14,7 +14,7 @@
           <div class="card-body">
             <h5 class="card-title">
               <a href="#" (click)="selectProduct(product)">{{
-                product.libelle
+                product.libelle | uppercase
               }}</a>
             </h5>
             <p class="card-text">{{ product.description }}</p>
