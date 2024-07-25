@@ -1,0 +1,12 @@
+<div *ngIf="Produit">
+  <h2>Détails du produit</h2>
+  <div class="card">
+    <img [src]="Produit.image" class="card-img-top product-image" [alt]="Produit.libelle">
+    <div class="card-body">
+      <h5 class="card-title">{{ Produit.libelle }}</h5>
+      <p class="card-text">{{ Produit.description }}</p>
+      <p class="card-text"><strong>Prix:</strong> {{ Produit.prix | currency:'EUR':'code':'1.2-2' }}</p>
+      <p class="card-text"><strong>Quantité:</strong> {{ Produit.quantite }}</p>
+    </div>
+  </div>
+</div>

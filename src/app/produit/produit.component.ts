@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { NgFor, UpperCasePipe, CurrencyPipe } from '@angular/common';
+import { NgFor, UpperCasePipe, CurrencyPipe, NgIf } from '@angular/common';
+import { DetailProduitComponent } from '../detail-produit/detail-produit.component';
+import { Produit } from '../produit.model';
 
 
 @Component({
@@ -7,15 +9,17 @@ import { NgFor, UpperCasePipe, CurrencyPipe } from '@angular/common';
   standalone: true,
   imports: [
     NgFor,
+    NgIf,
     UpperCasePipe,
-    CurrencyPipe
+    CurrencyPipe,
+    DetailProduitComponent
   ],
   templateUrl: './produit.component.html',
   styleUrl: './produit.component.css'
 })
 export class ProduitComponent {
     // créer un tabeau de produits
-    produits = [
+    produits: Produit[] = [
       {id: 1, libelle: 'Pomme', prix: 1.99, description: 'Une super pomme', image: 'https://cdn.pixabay.com/photo/2019/03/14/21/15/apple-4055926_1280.jpg', quantite: 15},
       {id: 2, libelle: 'Banane', prix: 0.99, description: 'Une super banane', image: 'https://cdn.pixabay.com/photo/2011/03/24/10/12/banana-5734_1280.jpg', quantite: 5},
       {id: 3, libelle: 'Poire', prix: 0.99, description: 'Une super poire', image: 'https://cdn.pixabay.com/photo/2017/05/09/11/02/pear-2297977_1280.jpg', quantite: 5},
@@ -24,4 +28,14 @@ export class ProduitComponent {
       {id: 6, libelle: 'Pamplemousse', prix: 0.99, description: 'Une super pamplemousse', image: 'https://cdn.pixabay.com/photo/2022/12/21/12/33/orange-7669963_1280.jpg', quantite: 5},
       
     ]
+    selectedProduct: Produit | null = null; // Utiliser l'interface Product
+
+    selectProduct(produit: Produit) {
+      this.selectedProduct = produit;
+    }
+  
+    deselectProduct() {
+      this.selectedProduct = null;
+    }
+
 }
