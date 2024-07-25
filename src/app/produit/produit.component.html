@@ -1,0 +1,24 @@
+<header>
+    <h1>SenFruits</h1>
+</header>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of produits">
+        <div class="card product-card">
+          <img [src]="product.image" class="card-img-top product-image" [alt]="product.libelle">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.libelle | uppercase }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+<p class="card-text"><strong>Prix:</strong> 
+    {{ product.prix | currency: 'EUR' : 'code' : '1.2-2' }}
+</p>
+            <p class="card-text"><strong>Quantité:</strong> {{ product.quantite }}</p>
+          </div>
+          <!-- <div class="card-footer text-center">
+            <button class="btn btn-primary">Ajouter au panier</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
