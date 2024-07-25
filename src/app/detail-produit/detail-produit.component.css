@@ -3,3 +3,8 @@
     object-fit: cover;
   }
   
+  .btn-outline-secondary:hover {
+    color: #fff;
+    background-color: #be90ab;
+    border-color: #be90ab;
+  }

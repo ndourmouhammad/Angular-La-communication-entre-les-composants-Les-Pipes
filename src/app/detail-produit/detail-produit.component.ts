@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgIf, UpperCasePipe, CurrencyPipe } from '@angular/common';
 import { Produit } from '../produit.model';
 
@@ -15,5 +15,10 @@ import { Produit } from '../produit.model';
    styleUrl: './detail-produit.component.css'
  })
  export class DetailProduitComponent {
-  @Input() Produit!: Produit; // Utiliser l'interface Product
+  @Input() product!: Produit; // Utiliser l'interface Product
+  @Output() deselect: EventEmitter<void> = new EventEmitter<void>();
+
+  onDeselect() {
+    this.deselect.emit();
+  }
 }
